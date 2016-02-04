@@ -1,0 +1,155 @@
+@charset "utf-8";
+body {
+	background: #000 url(images/bg.jpg) fixed top left no-repeat;
+	font-family:"Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 9pt;
+	color: #ccccff;
+	
+}
+p {  font-family:"Verdana", "Arial", "Helvetica", "sans-serif"; font-size: 9pt}
+
+a:link {  color: #0000FF; text-decoration: none}
+
+a:visited {  text-decoration: none}
+
+a:hover {  color: #FF0033; text-decoration: underline}
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing block. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the blocks, instead of the block elements themselves, gets rid of any box model math. A nested block with side padding can also be used as an alternate method. */
+}
+section a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: 2px solid #000;
+	-moz-box-shadow:0px 0px 8px #666666;
+	-webkit-box-shadow:0px 0px 8px #666666;
+	box-shadow:0px 0px 8px #666666;
+}
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+
+
+/* ~~ This fixed width container surrounds all other blocks ~~ */
+.container {
+	width: 1000px; /* the auto value on the sides, coupled with the width, centers the layout */
+margin: 2px auto;
+}
+/* ~~ The header is not given a width. It will extend the full width of your layout. ~~ */
+header {
+	background:#FFFFCC url(images/pattern.jpg);
+	position:fixed;
+	width:1000px;
+	height:90px;
+	top:0px;
+	-moz-box-shadow:0px 2px 8px #666666;
+	-webkit-box-shadow:0px 2px 8px #666666;
+	box-shadow:0px 2px 8px #666666;
+}
+header a{
+	float:left;
+}
+header a img{
+	-moz-box-shadow:2px 0px 8px #666666;
+	-webkit-box-shadow:2px 0px 8px #666666;
+	box-shadow:2px 0px 8px #666666;
+}
+
+header h1{
+    margin-top: 25px;
+	color:#000;
+	text-align:center;
+	text-shadow:2px 2px 8px #666666;
+}
+
+.sidebar1 {
+	position:fixed;
+	top:110px;
+	float: left;
+	width: 203px;
+	padding-bottom: 10px;
+}
+.content {
+	width: 800px;
+	float: left;
+	padding-top: 90px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 208px;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+.sidebar1 nav ul {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+.sidebar1 nav ul li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+	
+}
+.sidebar1 nav ul a:link, nav ul a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 39px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background: url(images/dot_off.gif) left center no-repeat;
+	color:#ffcc30;
+}
+.sidebar1 nav ul a:hover, nav ul a:active, nav ul a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background: #ffcc30 url(images/dot_on.gif) left center no-repeat;
+	color: #000;
+}
+
+/* ~~ The footer ~~ */
+footer {
+	padding: 10px 0;
+	background:#FFFFCC url(images/pattern.jpg);
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+	color:#000;
+	text-align:center;
+		-moz-box-shadow:0px -2px 8px #666666;
+	-webkit-box-shadow:0px -2px 8px #666666;
+	box-shadow:0px -2px 8px #666666;
+}
+footer p{
+	text-shadow:2px 2px 8px #666666;
+}
+/* ~~ Miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty block element as the final element following the last floated block (within the .container) if the footer is removed or taken out of the .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*HTML 5 support - Sets new HTML 5 tags to display:block so browsers know how to render the tags properly. */
+header, section, footer, aside, nav, article, figure {
+	display: block;
+}
+section{
+	padding-top:5px;
+}
+section h3{
+	padding-top:45px;
+}
+section h3 a:link, section h3 a:visited{
+	color:#ffcc30;
+}
+aside p{
+	color:#66FF66;
+}
